@@ -8,7 +8,6 @@ body {
 
 header {
     height: 100px;
-    /*background-color: rgb(178, 178, 178);*/
     background-image: linear-gradient(90deg, #000000 10%, #bababa, #e0dfdf);
     border-bottom: 2px solid rgb(204, 0, 0);
     text-align: center;
