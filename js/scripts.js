@@ -4,11 +4,12 @@ let pokemonList = [
 {name: 'Squirtle', height: 0.5, types: ['water']},
 ]; 
 
-/* Loop iterating all items of the pokemonList array displaying name and height, with an added conditional displaying an extra comment to any items with a heigth over 0.6 */
-for (let i = 0; i < pokemonList.length; i++) {
-    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ');
-  if (pokemonList[i].height > 0.6) {
-    document.write('- Wow, that\'s big!');
-  }
+/* New forEach loop iterating the different items with the properties name and height w/ a conditional adding a comment for items w/ a height over 0.6*/
+pokemonList.forEach(function(pokemon) {
+    document.write('name: ' + pokemon.name  + ' (height: ' + pokemon.height + ') '); 
+        if(pokemon.height > 0.6) {
+        document.write('- Wow, that\'s big!');
+    }
     document.write('<br>');
-}
+});
+
