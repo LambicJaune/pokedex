@@ -9,11 +9,34 @@ body {
 header {
     height: 100px;
     background-image: linear-gradient(90deg, #000000 10%, #bababa, #e0dfdf);
-    border-bottom: 2px solid rgb(204, 0, 0);
+    border-bottom: 2px solid #cc0000;
     text-align: center;
     margin-bottom: 30px;
 }
 
 .logo {
     margin-top: 20px;
+}
+
+.nameButton {
+    background-image: linear-gradient(90deg, #000000 30%, #696969, #757575);
+    border-radius: 7%;
+    border: 2px solid #cc0000;
+    padding: 15px;
+    margin: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: inherit;
+    color: white;
+    font-family: inherit;
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.25);
+    transition-duration: 0.5s;
+}
+
+.nameButton:hover {
+    background-color: grey 50%;
+}
+
+ul {
+    list-style-type: none;
 }
