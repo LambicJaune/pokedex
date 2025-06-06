@@ -4,26 +4,31 @@ body {
     font-weight: 400;
     color: rgb(52, 52, 53);
     margin: 0;
+    background-image: url('../img/background_image_circuits_board.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    background-repeat: no-repeat;
 }
 
 header {
     height: 100px;
     background-image: linear-gradient(90deg, #000000 10%, #bababa, #e0dfdf);
-    border-bottom: 2px solid #cc0000;
+    border-bottom: 2px solid #1ae2fc;
     text-align: center;
     margin-bottom: 30px;
 }
 
-.logo {
-    margin-top: 20px;
+.page-header__item {
+    margin-top: 26px;
 }
 
 .nameButton {
-    background-image: linear-gradient(90deg, #000000 30%, #696969, #757575);
+    background-image: linear-gradient(90deg, #000000 40%, #373737, #757575);
     border-radius: 7%;
-    border: 2px solid #cc0000;
+    border: 2px solid #1ae2fc;
     padding: 15px;
     margin: 8px;
+    width: 300px;
     text-align: center;
     text-decoration: none;
     font-size: inherit;
@@ -39,4 +44,25 @@ header {
 
 ul {
     list-style-type: none;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .page-header__item {
+        margin: auto;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .nameButton {
+        margin: 15px auto;
+        width: 80%;
+        display: block;
+    }
 }
