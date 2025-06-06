@@ -24,7 +24,7 @@ header {
 
 .nameButton {
     background-image: linear-gradient(90deg, #000000 40%, #373737, #757575);
-    border-radius: 7%;
+    border-radius: 7px;
     border: 2px solid #1ae2fc;
     padding: 15px;
     margin: 8px;
