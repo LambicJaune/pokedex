@@ -144,3 +144,33 @@ ul {
     }
 
 }
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .modal {
+        width: 80vw;
+        height: auto;
+        max-height: 90vh;
+        border-radius: 10px;
+        padding: 10px 10px 40px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .modal img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .modal h1,
+    .modal p {
+        flex-shrink: 1;
+        overflow-wrap: break-word;
+        margin: 0 0 10px 0;
+    }
+
+    #modal-container.is-visible {
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+}
