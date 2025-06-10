@@ -96,20 +96,36 @@ ul {
 
 .modal h1 {
     color: #ffffff;
-}
-
-@media (max-width: 768px) {
+}@media (max-width: 768px) {
     .page-header {
         display: flex;
         flex-direction: row;
     }
-    
+
     .page-header__item {
         margin: auto;
     }
 
     .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+    }
+
+    .pokemon-list {
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .pokemon-list li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .nameButton {
@@ -125,25 +141,27 @@ ul {
     }
 
     .modal {
-    width: 80vw;
-    max-height: 80vh;
-    border-radius: 10px; 
-    padding: 10px 10px 40px;
-    box-sizing:border-box;
+        width: 80vw;
+        max-height: 80vh;
+        border-radius: 10px;
+        padding: 10px 10px 40px;
+        box-sizing: border-box;
     }
 
     .modal img {
-    max-width: 80%;
-    height: auto;
+        max-width: 80%;
+        height: auto;
     }
 
     .modal p {
-    flex-shrink: 1;      /* allow paragraphs to shrink if needed */
-    overflow-wrap: break-word;
-    margin: 0 0 10px 0;
+        flex-shrink: 1;
+        /* allow paragraphs to shrink if needed */
+        overflow-wrap: break-word;
+        margin: 0 0 10px 0;
     }
 
 }
+
 @media screen and (orientation: landscape) and (max-height: 500px) {
     .modal {
         width: 80vw;
