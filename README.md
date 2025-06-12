@@ -4,6 +4,6 @@ The Pokédex application allows the user to load a list of Pokémons as well as 
 
 How to get the project running : TBC
 
-Project dependencies : JavaScript ES6 and higher, ESLint rules.
+Project dependencies : JavaScript ES6 and higher, ESLint rules, Bootstrap, Poppers.js.
 
 Which API the project uses : TBC
