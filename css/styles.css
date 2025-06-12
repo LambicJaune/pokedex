@@ -96,6 +96,7 @@ ul {
 
 .modal h1 {
     color: #ffffff;
+    
 }@media (max-width: 768px) {
     .page-header {
         display: flex;
