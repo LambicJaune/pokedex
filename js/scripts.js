@@ -14,9 +14,10 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let unorderedPokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
+        listItem.classList.add('list-group-item');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('nameButton')
+        button.classList.add('nameButton', 'btn', 'btn-primary', 'btn-lg')
         listItem.appendChild(button);
         unorderedPokemonList.appendChild(listItem);
         //Event listener running a console log for each pokemon that is clicked on
@@ -25,7 +26,7 @@ let pokemonRepository = (function () {
         });
     }
 
-    //function allowing to load the API containting all the pokemons
+    //function loading the API containting all the Pokémon
     function loadList() {
         return fetch(apiUrl).then(function (response) {
             return response.json();
@@ -58,8 +59,9 @@ let pokemonRepository = (function () {
     //function allowing the button event listener to log details into the modal
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-            modalDisplay.show(pokemon);
-        });
+        showModal(pokemon.name, 'Height: ' + pokemon.height, pokemon.imageUrl, pokemon.types);
+        $('#pokemonModal').modal('show');    
+    });
     }
 
     return {
@@ -71,73 +73,14 @@ let pokemonRepository = (function () {
     }
 })();
 
-
-let modalDisplay = (function () {
-    let modalContainer = document.querySelector('#modal-container');
-    function show(pokemon) {
-        modalContainer.innerHTML = ''; //empty the content to prepare it to receive the API's content
-
-        let modal = document.createElement('div');
-        modal.classList.add('modal');
-
-        //create the close button and activates it at the click
-        let closeButtonElement = document.createElement('button');
-        closeButtonElement.classList.add('modal-close');
-        closeButtonElement.innerText = 'Close';
-        closeButtonElement.addEventListener('click', hide);
-
-        let titleElement = document.createElement('h1');
-        titleElement.innerText = pokemon.name;
-
-        let imageElement = document.createElement('img');
-        imageElement.src = pokemon.imageUrl;
-        imageElement.alt = pokemon.name;
-        imageElement.style.width = '250px';
-
-        let heightElement = document.createElement('p');
-        heightElement.innerText = 'Height: ' + pokemon.height;
-
-        // extract the objects under "Types", t=item
-        let types = pokemon.types.map(t => t.type.name).join(', ');
-
-        let typesElement = document.createElement('p');
-        typesElement.innerText = 'Types: ' + types;
-
-        //Generates all the elements into the modal
-        modal.appendChild(closeButtonElement);
-        modal.appendChild(titleElement);
-        modal.appendChild(imageElement);
-        modal.appendChild(heightElement);
-        modal.appendChild(typesElement);
-        modalContainer.appendChild(modal);
-
-        modalContainer.classList.add('is-visible');
-
-        modalContainer.addEventListener('click', (e) => {
-            // Since this is also triggered when clicking INSIDE the modal
-            // We only want to close if the user clicks directly on the overlay
-            let target = e.target;
-            if (target === modalContainer) {
-                hide();
-            }
-        });
-    }
-
-    function hide() {
-    //removes the is-visible class so the modal gets hidden
-        modalContainer.classList.remove('is-visible'); 
-    }
-    // allows to use the escape key to close the modal
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-            hide();
-        }
-    });
-    return {
-        show: show,
-        hide: hide
-    };
-})();
+//diplays all the pokemon details into the modal
+function showModal(title, text, img, types) {
+    let typeNames = types.map(t => t.type.name).join(', ');
+    document.querySelector("#pokemonNameTitle").innerText = title;
+    document.querySelector("#pokemonHeight").innerText = text;
+    document.querySelector("#pokemonImage").setAttribute('src', img);
+    document.querySelector('#pokemonTypes').innerText = 'Types: ' + typeNames;
+}
 
 pokemonRepository.loadList().then(function () {
     //Calls the addListItem function created above on each item in order to generate the Pokemon list as buttons*/
