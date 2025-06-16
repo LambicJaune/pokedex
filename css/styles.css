@@ -100,6 +100,29 @@ li.list-group-item{
     color: #1ae2fc;
     border: 2px solid #1ae2fc;
 }
+
+.btn-secondary {
+    background-image: linear-gradient(90deg, #000000 40%, #373737, #757575);
+    border-radius: 7px;
+    border: 2px solid #1ae2fc;
+    padding: 10px 20px;  /* smaller padding */
+    margin: 8px;
+    width: 100px;         /* smaller width */
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;      /* smaller font */
+    color: white;
+    font-family: inherit;
+    box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.3);
+    transition-duration: 0.5s;
+}
+
+.btn-secondary:hover {
+    opacity: 0.85;
+    color: #1ae2fc;
+    border: 2px solid #1ae2fc;
+}
+
     
 @media (max-width: 768px) {
     .page-header {
