@@ -1,4 +1,3 @@
-//Array of Pokemons contained in a IIFE with a function add and a function getAll
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';

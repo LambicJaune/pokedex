@@ -21,35 +21,9 @@ body {
     align-items: center;
 }
 
-.nameButton {
-    background-image: linear-gradient(90deg, #000000 40%, #373737, #757575);
-    border-radius: 7px;
-    border: 2px solid #1ae2fc;
-    padding: 15px;
-    margin: 8px;
-    width: 300px;
-    text-align: center;
-    text-decoration: none;
-    font-size: inherit;
-    color: white;
-    font-family: inherit;
-    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.35);
-    transition-duration: 0.5s;
-}
-
-.nameButton:hover {
-    opacity: 0.8;
-    color: #1ae2fc;
-    border: 2px solid #1ae2fc;
-}
-
 li.list-group-item{
     background-color: transparent;
     border: none;
-}
-
-ul {
-    list-style-type: none;
 }
 
 .modal-close {
@@ -57,9 +31,9 @@ ul {
   border: 0;
   background: none;
   color: #ffffff;
-  text-decoration: underline;
-  font-size: large;
+  text-decoration: none;
 }
+
 .modal {
     text-align: center;
 }
@@ -104,33 +78,33 @@ ul {
     width: 40%;
 }
 
-.btn-primary {
+
+.nameButton {
     background-image: linear-gradient(90deg, #000000 40%, #373737, #757575);
     border-radius: 7px;
     border: 2px solid #1ae2fc;
-    padding: 14px;
+    padding: 15px;
     margin: 8px;
+    width: 300px;
     text-align: center;
     text-decoration: none;
+    font-size: inherit;
     color: white;
     font-family: inherit;
     box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.35);
     transition-duration: 0.5s;
 }
 
-.btn-primary:hover {
+.nameButton:hover {
+    opacity: 0.8;
+    color: #1ae2fc;
     border: 2px solid #1ae2fc;
-    opacity: 0.9;
 }
     
 @media (max-width: 768px) {
     .page-header {
         display: flex;
         flex-direction: row;
-    }
-
-    .page-header__item {
-        margin: auto;
     }
 
     .container-fluid {
