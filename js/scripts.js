@@ -18,6 +18,8 @@ let pokemonRepository = (function () {
         let button = document.createElement('button');
         button.innerText = pokemon.name;
         button.classList.add('nameButton', 'btn', 'btn-primary', 'btn-lg')
+        button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-target', '#pokemonModal');
         listItem.appendChild(button);
         unorderedPokemonList.appendChild(listItem);
         //Event listener running a console log for each pokemon that is clicked on
@@ -60,7 +62,6 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
         showModal(pokemon.name, 'Height: ' + pokemon.height, pokemon.imageUrl, pokemon.types);
-        $('#pokemonModal').modal('show');    
     });
     }
 

@@ -14,13 +14,16 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
     <header class="page-header">
-        <img src="img/logo_pokedex.png" width="200px" height="44px" class="page-header__item"
-            alt="logo of a Pokeball next to the text Pokedex">
+        <nav class="navbar navbar-light bg-light justify-content-center">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo_pokedex.png" width="200px" height="44px" class="page-header__item" width="200"
+                    height="44" alt="Pokedex logo including a Pokeball instead of the letter o">
+            </a>
+        </nav>
     </header>
-    
+
     <main class="container-fluid">
         <ul class="pokemon-list list-group">
         </ul>
@@ -32,7 +35,8 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div><div class="modal-body">
+                    </div>
+                    <div class="modal-body">
                         <img id="pokemonImage" src="#" alt="pokemon Image" class="img-fluid">
                         <p id="pokemonHeight"></p>
                         <p id="pokemonTypes"></p>
