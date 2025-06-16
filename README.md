@@ -6,4 +6,4 @@ How to get the project running : TBC
 
 Project dependencies : JavaScript ES6 and higher, ESLint rules, Bootstrap, JQuery Core 3.3.1, Poppers.js.
 
-Which API the project uses : TBC
+Which API the project uses : https://pokeapi.co/
