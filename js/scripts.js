@@ -16,7 +16,7 @@ let pokemonRepository = (function () {
         listItem.classList.add('list-group-item');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('nameButton', 'btn', 'btn-primary', 'btn-lg')
+        button.classList.add('nameButton', 'btn', 'btn-primary', 'btn-lg');
         button.setAttribute('data-toggle', 'modal');
         button.setAttribute('data-target', '#pokemonModal');
         listItem.appendChild(button);
@@ -29,39 +29,50 @@ let pokemonRepository = (function () {
 
     //function loading the API containting all the Pokémon
     function loadList() {
-        return fetch(apiUrl).then(function (response) {
-            return response.json();
-        }).then(function (json) {
-            json.results.forEach(function (item) {
-                let pokemon = {
-                    name: item.name,
-                    detailsUrl: item.url
-                };
-                add(pokemon);
+        return fetch(apiUrl)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (json) {
+                json.results.forEach(function (item) {
+                    let pokemon = {
+                        name: item.name,
+                        detailsUrl: item.url,
+                    };
+                    add(pokemon);
+                });
+            })
+            .catch(function (e) {
+                console.error(e);
             });
-        }).catch(function (e) {
-            console.error(e);
-        })
     }
     //function allowing to load the detailed data of each pokemon
     function loadDetails(pokemon) {
         let url = pokemon.detailsUrl;
-        return fetch(url).then(function (response) {
-            return response.json();
-        }).then(function (details) {
-            // Adding the details to the item
-            pokemon.imageUrl = details.sprites.front_default;
-            pokemon.height = details.height;
-            pokemon.types = details.types;
-        }).catch(function (e) {
-            console.error(e);
-        });
+        return fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (details) {
+                // Adding the details to the item
+                pokemon.imageUrl = details.sprites.front_default;
+                pokemon.height = details.height;
+                pokemon.types = details.types;
+            })
+            .catch(function (e) {
+                console.error(e);
+            });
     }
     //function allowing the button event listener to log details into the modal
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-        showModal(pokemon.name, 'Height: ' + pokemon.height, pokemon.imageUrl, pokemon.types);
-    });
+            showModal(
+                pokemon.name,
+                'Height: ' + pokemon.height,
+                pokemon.imageUrl,
+                pokemon.types
+            );
+        });
     }
 
     return {
@@ -69,16 +80,16 @@ let pokemonRepository = (function () {
         getAll: getAll,
         addListItem: addListItem,
         loadList: loadList,
-        loadDetails: loadDetails
-    }
+        loadDetails: loadDetails,
+    };
 })();
 
 //diplays all the pokemon details into the modal
 function showModal(title, text, img, types) {
-    let typeNames = types.map(t => t.type.name).join(', ');
-    document.querySelector("#pokemonNameTitle").innerText = title;
-    document.querySelector("#pokemonHeight").innerText = text;
-    document.querySelector("#pokemonImage").setAttribute('src', img);
+    let typeNames = types.map((t) => t.type.name).join(', ');
+    document.querySelector('#pokemonNameTitle').innerText = title;
+    document.querySelector('#pokemonHeight').innerText = text;
+    document.querySelector('#pokemonImage').setAttribute('src', img);
     document.querySelector('#pokemonTypes').innerText = 'Types: ' + typeNames;
 }
 
