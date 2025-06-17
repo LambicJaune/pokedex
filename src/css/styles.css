@@ -1,0 +1,203 @@
+body {
+    font-family: 'Saira', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: rgb(52, 52, 53);
+    margin: 0;
+    padding-top: 120px;
+    background-image: url('../img/background_image_circuits_board.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.navbar {
+    height: 100px;
+    background-image: linear-gradient(90deg, #000000 10%, #bababa, #e0dfdf);
+    border-bottom: 2px solid #1ae2fc;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    align-items: center;
+}.page-header__item {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+li.list-group-item{
+    background-color: transparent;
+    border: none;
+}
+
+.modal-close {
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.modal {
+    text-align: center;
+}
+
+.modal-content {
+    background-image: linear-gradient(180deg, #c60202 20%, #ffffff, #ffffff);
+    max-width: 90vw;
+    max-height: 90vh;
+    border: 2px solid black;
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    margin: 1.75rem auto;
+}
+
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto; 
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+    border: none;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background: transparent;
+}
+
+
+.modal h1 {
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.modal img {
+    width: 40%;
+}
+
+
+.nameButton {
+    background-image: linear-gradient(90deg, #000000 40%, #373737, #757575);
+    border-radius: 7px;
+    border: 2px solid #1ae2fc;
+    padding: 15px;
+    margin: 8px;
+    width: 300px;
+    text-align: center;
+    text-decoration: none;
+    font-size: inherit;
+    color: white;
+    font-family: inherit;
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.35);
+    transition-duration: 0.5s;
+}
+
+.nameButton:hover {
+    opacity: 0.8;
+    color: #1ae2fc;
+    border: 2px solid #1ae2fc;
+}
+
+.btn-secondary {
+    background-image: linear-gradient(90deg, #000000 40%, #373737, #757575);
+    border-radius: 7px;
+    border: 2px solid #1ae2fc;
+    padding: 10px 20px; 
+    margin: 8px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    font-family: inherit;
+    box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.3);
+    transition-duration: 0.5s;
+}
+
+.btn-secondary:hover {
+    opacity: 0.85;
+    color: #1ae2fc;
+    border: 2px solid #1ae2fc;
+}
+
+#searchInput {
+    border: 2px solid #1ae2fc;
+}
+
+    
+@media (max-width: 768px) {
+    .page-header {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container-fluid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pokemon-list {
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .pokemon-list li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nameButton {
+        margin: 15px auto;
+        width: 80%;
+        display: block;
+    }
+
+    .modal-content {
+        overflow-y: auto;
+   }
+
+ .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    height: auto;
+  }
+
+  .navbar-brand.mx-auto {
+    margin-top: 0.8rem;
+  }
+
+  #searchForm {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  #searchInput {
+    width: 70%;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+   .modal-content {
+        overflow-y: auto;
+   }
+}
