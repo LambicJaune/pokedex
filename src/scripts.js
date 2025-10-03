@@ -9,25 +9,26 @@ let pokemonRepository = (function () {
     function getAll() {
         return pokemonList;
     }
-    //function allowing to generate dynamic html to display all items in the pokemonList as buttons
+
     function addListItem(pokemon) {
-        let unorderedPokemonList = document.querySelector('.pokemon-list');
-        let listItem = document.createElement('li');
-        listItem.classList.add('list-group-item');
+        let row = document.querySelector('.pokemon-list');
+        let col = document.createElement('div');
+        col.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('nameButton', 'btn', 'btn-primary', 'btn-lg');
+        button.classList.add('nameButton', 'btn', 'btn-primary', 'btn-lg', 'w-100');
         button.setAttribute('data-toggle', 'modal');
         button.setAttribute('data-target', '#pokemonModal');
-        listItem.appendChild(button);
-        unorderedPokemonList.appendChild(listItem);
-        //Event listener running a console log for each pokemon that is clicked on
+
+        col.appendChild(button);
+        row.appendChild(col);
+
         button.addEventListener('click', function () {
             showDetails(pokemon);
         });
     }
 
-    //function loading the API containting all the Pokémon
     function loadList() {
         return fetch(apiUrl)
             .then(function (response) {
@@ -46,7 +47,7 @@ let pokemonRepository = (function () {
                 console.error(e);
             });
     }
-    //function allowing to load the detailed data of each pokemon
+
     function loadDetails(pokemon) {
         let url = pokemon.detailsUrl;
         return fetch(url)
@@ -54,7 +55,6 @@ let pokemonRepository = (function () {
                 return response.json();
             })
             .then(function (details) {
-                // Adding the details to the item
                 pokemon.imageUrl = details.sprites.front_default;
                 pokemon.height = details.height;
                 pokemon.types = details.types;
@@ -63,7 +63,7 @@ let pokemonRepository = (function () {
                 console.error(e);
             });
     }
-    //function allowing the button event listener to log details into the modal
+
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             showModal(
@@ -84,7 +84,6 @@ let pokemonRepository = (function () {
     };
 })();
 
-//diplays all the pokemon details into the modal
 function showModal(title, text, img, types) {
     let typeNames = types.map((t) => t.type.name).join(', ');
     document.querySelector('#pokemonNameTitle').innerText = title;
@@ -94,13 +93,11 @@ function showModal(title, text, img, types) {
 }
 
 pokemonRepository.loadList().then(function () {
-    //Calls the addListItem function created above on each item in order to generate the Pokemon list as buttons*/
     pokemonRepository.getAll().forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);
     });
 });
 
-//enables the search function
 let searchForm = document.getElementById('searchForm');
 let searchInput = document.getElementById('searchInput');
 let pokemonListContainer = document.querySelector('.pokemon-list');
@@ -113,7 +110,6 @@ searchForm.addEventListener('input', function () {
         pokemon.name.toLowerCase().includes(query)
     );
 
-    // clearing the list before rendering the result of the search
     pokemonListContainer.innerHTML = '';
     filtered.forEach((pokemon) => {
         pokemonRepository.addListItem(pokemon);
